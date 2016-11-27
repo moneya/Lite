@@ -1,0 +1,11 @@
+<ion-view>
+  <ion-view view-title="page"> 
+    <ion-nav-title class="logo logo-no-right-btn">
+      <a ng-href="#/app/postlist"><img src="img/logo.png"></a>
+  </ion-nav-title>  
+    
+  <ion-content class="padding">    
+    <h1 class="page-title">{{page.title}}</h1>   
+    <div ng-bind-html="content" class="post-content"></div> 
+  </ion-content>
+</ion-view>
