@@ -1,0 +1,32 @@
+<ion-view class="post-view" cache-view="false">
+
+  <ion-nav-title>
+   <center class="title" ng-bind-html="post.title | rawHtml"></center>
+  </ion-nav-title>
+  <ion-content>
+    <div class=" item-image">
+  <img style="height:300px; width: 100%; " ng-src="{{post.thumbnail}}">
+</div>
+    <div class="post" post-content>
+      <div class="item-body">
+        <h3 ng-bind-html="post.title | rawHtml"></h3>
+      </div>
+      <div class=" item-divider">
+         <h4>Posted <span am-time-ago="post.date"></span></h4>
+      </div>
+      <div class="item-body " dynamic-anchor-fix ng-bind-html="post.content | rawHtml"></div>
+    </div>
+    <div class="item-body">
+      <a class="button button-block button-balanced" ng-click="sharePost(post.url)">SHARE</a>
+    </div>
+    <div class="comments">
+      <div class="list">
+        <div class="item item-avatar" ng-repeat="comment in comments" ng-class="{highlighted: comment.id === new_comment_id}">
+          <img ng-src="{{comment.user_gravatar}}">
+          <h2  ng-bind-html="comment.author.name | rawHtml"><span class="comment-date" am-time-ago="comment.date"></span></h2>
+          <p class="message-content" ng-bind-html="comment.content | rawHtml"></p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

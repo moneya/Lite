@@ -1,0 +1,19 @@
+<ion-view class="home-view">
+  <ion-nav-title class="bar bar-header bar-assertive">
+   <center class="title">Home</center>
+  </ion-nav-title>
+  <ion-content>
+
+    <!-- Refresh to get the new posts -->
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <div >
+      <div post-card ng-repeat="post in posts" class="list card"></div>
+    </div>
+
+    <!-- Infinit scroll -->
+    <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMoreData()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

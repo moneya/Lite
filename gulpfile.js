@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
 var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
@@ -7,7 +6,6 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
-var sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -17,17 +15,13 @@ gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
-   .pipe(sourcemaps.init())
-    .pipe(sass({
-      errLogToConsole: true
+    .pipe(sass())
+    .on('error', sass.logError)
+    .pipe(gulp.dest('./www/css/'))
+    .pipe(minifyCss({
+      keepSpecialComments: 0
     }))
-    .pipe($.autoprefixer({
-          browsers: [
-            'last 2 versions',
-            'android 4'
-          ]
-    }))
-    .pipe(sourcemaps.write('/sourcemaps/'))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });

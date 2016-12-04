@@ -1,0 +1,48 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content class="post-size-14px"  drag-content="false">
+    <ion-nav-bar style="text-align:center;" class="bar bar-header bar-balanced">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-bookmark"ui-sref="app.bookmarks">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu class="" side="left" width="230">
+    <ion-content>
+      <ion-list>
+        <ion-item class="heading-item item" nav-clear menu-close ui-sref="app.settings">
+          <pre-img ratio="_1_1">
+            <img class="user-image" ng-src="{{user.avatar}}" spinner-on-load>
+          </pre-img>
+          <div class="heading-bg">
+          </div>
+          <div class="heading-action item-icon-left">
+            <i class="icon ion-gear-a"></i>
+            <h2 class="greeting">My settis</h2>
+          </div>
+        </ion-item>
+        <ion-item class="item item-icon-left" nav-clear menu-close ui-sref="app.home">
+          <i class="icon ion-quote"></i>
+          <h2 class="menu-text">Home</h2>
+        </ion-item>
+        <ion-item class="item item-icon-left" nav-clear menu-close ui-sref="app.bookmarks">
+          <i class="icon ion-bookmark"></i>
+          <h2 class="menu-text">Saved for later</h2>
+        </ion-item>
+        <ion-item class="item item-icon-left" nav-clear menu-close ui-sref="app.page">
+          <i class="icon ion-social-wordpress"></i>
+          <h2 class="menu-text">Wordpress Page</h2>
+        </ion-item>
+        <ion-item class="item item-icon-left" nav-clear menu-close ui-sref="app.contact">
+          <i class="icon ion-location"></i>
+          <h2 class="menu-text">Contact</h2>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+

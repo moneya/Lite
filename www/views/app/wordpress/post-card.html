@@ -1,0 +1,31 @@
+<div class=" item item-image">
+  <img style="height:200px; width: 100%; " ng-src="{{post.thumbnail_images.full.url}}">
+</div>
+<div class="item-body">
+ <h5  ng-bind-html="post.title | rawHtml"></h5>
+     <p>
+      <a  class="subdued"><i class="ion ion-eye"></i> {{post.custom_fields.post_views_count}}</a>
+      <a href="#" class="subdued">{{post.comment_count}} Comments</a>
+      
+    </p>
+</div>
+<div class="item tabs tabs-secondary tabs-balanced tabs-icon-left">
+    <a class="tab-item" ui-sref="app.post({postId :post.id})">
+      <i class="icon ion-compose"></i>
+      Readmore
+    </a>
+    <a class="tab-item"ng-click="bookmarkPost(post)">
+   <i class="icon ion-bookmark"></i>
+      Favorite
+    </a>
+    <a class="tab-item" ng-click="sharePost(post.url)">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+</div>
+
+</div>
+
+</div>
+

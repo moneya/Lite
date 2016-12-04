@@ -1,4 +1,4 @@
-/* angular-moment.js / v0.10.3 / (c) 2013, 2014, 2015 Uri Shaked / MIT Licence */
+/* angular-moment.js / v0.10.2 / (c) 2013, 2014, 2015 Uri Shaked / MIT Licence */
 
 'format amd';
 /* global define */
@@ -413,7 +413,7 @@
 				 *
 				 * @param {Moment} aMoment a moment() instance to apply the timezone shift to
 				 * @param {string=} timezone The timezone to apply. If none given, will apply the timezone
-				 *        configured in angularMomentConfig.timezone. It can be a named timezone (e.g. 'America/Phoenix') or an offset from UTC (e.g. '+0300')
+				 * 		configured in angularMomentConfig.timezone. It can be a named timezone (e.g. 'America/Phoenix') or an offset from UTC (e.g. '+0300')
 				 *
 				 * @returns {Moment} The given moment with the timezone shift applied
 				 */
@@ -423,7 +423,7 @@
 						return aMoment;
 					}
 
-					if (timezone.match(/^Z|[+-]\d\d:?\d\d$/i)) {
+					if (timezone.match(/Z|[+-]\d\d:?\d\d/gi)) {
 						aMoment = aMoment.utcOffset(timezone);
 					} else if (aMoment.tz) {
 						aMoment = aMoment.tz(timezone);
@@ -505,13 +505,12 @@
 		 * @function
 		 */
 			.filter('amDateFormat', ['moment', 'amMoment', 'angularMomentConfig', function (moment, amMoment, angularMomentConfig) {
-				function amDateFormatFilter(value, format, preprocess, timezone, inputFormat) {
-					var currentFormat = inputFormat || angularMomentConfig.format;
+				function amDateFormatFilter(value, format, preprocess, timezone) {
 					if (typeof value === 'undefined' || value === null) {
 						return '';
 					}
 
-					value = amMoment.preprocessDate(value, preprocess, currentFormat);
+					value = amMoment.preprocessDate(value, preprocess);
 					var date = moment(value);
 					if (!date.isValid()) {
 						return '';
@@ -576,48 +575,6 @@
 				amTimeAgoFilter.$stateful = angularMomentConfig.statefulFilters;
 
 				return amTimeAgoFilter;
-			}])
-
-		/**
-		 * @ngdoc filter
-		 * @name angularMoment.filter:amSubtract
-		 * @module angularMoment
-		 * @function
-		 */
-			.filter('amSubtract', ['moment', 'angularMomentConfig', function (moment, angularMomentConfig) {
-				function amSubtractFilter(value, amount, type) {
-
-					if (typeof value === 'undefined' || value === null) {
-						return '';
-					}
-
-					return moment(value).subtract(parseInt(amount, 10), type);
-				}
-
-				amSubtractFilter.$stateful = angularMomentConfig.statefulFilters;
-
-				return amSubtractFilter;
-			}])
-
-		/**
-		 * @ngdoc filter
-		 * @name angularMoment.filter:amAdd
-		 * @module angularMoment
-		 * @function
-		 */
-			.filter('amAdd', ['moment', 'angularMomentConfig', function (moment, angularMomentConfig) {
-				function amAddFilter(value, amount, type) {
-
-					if (typeof value === 'undefined' || value === null) {
-						return '';
-					}
-
-					return moment(value).add(parseInt(amount, 10), type);
-				}
-
-				amAddFilter.$stateful = angularMomentConfig.statefulFilters;
-
-				return amAddFilter;
 			}]);
 	}
 
