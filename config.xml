@@ -65,7 +65,6 @@
     <plugin name="cordova-plugin-device" spec="^1.0.1" />
     <plugin name="cordova-plugin-extension" spec="^1.1.4" />
     <plugin name="cordova-plugin-whitelist" spec="^1.0.0" />
-    <plugin name="org.pushandplay.cordova.apprate" spec="^1.1.7" />
     <plugin name="com.ionic.keyboard" spec="https://github.com/driftyco/ionic-plugins-keyboard.git" />
     <plugin name="cordova-plugin-splashscreen" spec="^2.1.0" />
     <plugin name="cordova-plugin-globalization" spec="~1.0.4" />
