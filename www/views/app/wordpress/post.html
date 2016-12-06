@@ -5,16 +5,16 @@
   </ion-nav-title>
   <ion-content>
     <div class=" item-image">
-  <img style="height:300px; width: 100%; " ng-src="{{post.thumbnail}}">
+  <img style="height:200px; width: 100%; " ng-src="{{post.thumbnail_images.full.url}}">
 </div>
     <div class="post" post-content>
-      <div class="item-body">
+      <div class="card-header">
         <h3 ng-bind-html="post.title | rawHtml"></h3>
       </div>
       <div class=" item-divider">
          <h4>Posted <span am-time-ago="post.date"></span></h4>
       </div>
-      <div class="item-body " dynamic-anchor-fix ng-bind-html="post.content | rawHtml"></div>
+      <div class="card-content " dynamic-anchor-fix ng-bind-html="post.content | rawHtml"></div>
     </div>
     <div class="item-body">
       <a class="button button-block button-balanced" ng-click="sharePost(post.url)">SHARE</a>
