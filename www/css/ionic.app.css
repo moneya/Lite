@@ -38,6 +38,8 @@ ion-content{
 .post figure{
   width: 320px;
   background:#fff;
+  margin-left: 5px ;
+  margin-right: auto ;
 
 }
 .post figure img {
