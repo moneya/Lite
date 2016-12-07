@@ -48,7 +48,8 @@ ion-content{
 .post figure figcaption {
     width:  300px;
     text-align: center;
-    background: #f8f8f8;
+    background: #0b6928;
+    color: #ffffff;
 }
 .comments .item .message-content {
 	overflow: inherit;
