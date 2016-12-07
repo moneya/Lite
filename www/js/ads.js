@@ -1,4 +1,4 @@
-<script type="text/javascript">// <![CDATA[
+// <![CDATA[
   function runads(){
     document.addEventListener("deviceready", onDeviceReady, false);
   }
@@ -61,4 +61,4 @@
     // request an interstitial
     admob.requestInterstitialAd();
   }
-// ]]></script>
+// ]]
