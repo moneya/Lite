@@ -37,6 +37,24 @@ angular.module('your_app_name', [
      // org.apache.cordova.statusbar required
      StatusBar.styleDefault();
      }
+     
+     if(window.AdMob) {
+
+        // Detect platform
+        var adMobId = "";
+        if ( /(android)/i.test(navigator.userAgent ) ) { // for android
+            adMobId = "ca-app-pub-4644220547347064/5643587431";
+        } else if( /(ipod|iphone|ipad)/i.test(navigator.userAgent) ) { // for ios
+            adMobId = "codeForIOS";     
+        }
+
+        // Create banner
+        window.AdMob.createBanner({
+        adId: adMobId, 
+        position: AdMob.AD_POSITION.BOTTOM_CENTER, 
+        autoShow: true });
+    }
+});
      PushNotificationsService.register();
      });
 
