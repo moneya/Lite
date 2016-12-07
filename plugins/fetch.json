@@ -111,5 +111,22 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-admob": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/appfeel/admob-google-cordova.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-connectivity-monitor": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-connectivity-monitor"
+        },
+        "is_top_level": false,
+        "variables": {}
     }
 }
