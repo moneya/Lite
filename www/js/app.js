@@ -38,23 +38,21 @@ angular.module('your_app_name', [
      StatusBar.styleDefault();
      }
      
-     if(window.AdMob) {
-
-        // Detect platform
-        var adMobId = "";
-        if ( /(android)/i.test(navigator.userAgent ) ) { // for android
-            adMobId = "ca-app-pub-4644220547347064/5643587431";
-        } else if( /(ipod|iphone|ipad)/i.test(navigator.userAgent) ) { // for ios
-            adMobId = "codeForIOS";     
-        }
-
-        // Create banner
-        window.AdMob.createBanner({
-        adId: adMobId, 
-        position: AdMob.AD_POSITION.BOTTOM_CENTER, 
-        autoShow: true });
+if( ionic.Platform.isAndroid() )  { 
+        admobid = { // for Android
+          banner: 'ca-app-pub-4778243441447061/9718271034'
+        };
+ 
+        if(AdMob) 
+          AdMob.createBanner( 
+            {
+              adId:admobid.banner, 
+              position:AdMob.AD_POSITION.BOTTOM_CENTER, 
+              autoShow:true
+            } 
+          );
     }
-});
+    
      PushNotificationsService.register();
      });
 
