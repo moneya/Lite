@@ -74,6 +74,7 @@
     <plugin name="cordova-plugin-email-composer" spec="~0.8.3" />
     <plugin name="cordova-plugin-apprate" spec="~1.2" />
     <plugin name="cordova-plugin-admobpro" spec="~2.24.0" />
+    <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/phonegap-build/PushPlugin.git" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.5.0" />
     <plugin name="cordova-plugin-statusbar" spec="https://github.com/apache/cordova-plugin-statusbar.git" />
 </widget>

@@ -9,10 +9,10 @@
 </div>
     <div class="post" post-content>
       <div class="card-header">
-        <h3 ng-bind-html="post.title | rawHtml"></h3>
+        <h3 ng-bind-html="post.title | rawHtml"></h3> 
       </div>
       <div class=" item-divider">
-         <h4>Posted <span am-time-ago="post.date"></span></h4>
+         <p>Posted <span am-time-ago="post.date"></span></p>
       </div>
       <div class="card-content " dynamic-anchor-fix ng-bind-html="post.content | rawHtml"></div>
     </div>

@@ -10,6 +10,7 @@ angular.module('underscore', [])
 // the 2nd parameter is an array of 'requires'
 angular.module('your_app_name', [
   'ionic',
+  'ngCordova',
   'your_app_name.directives',
   'your_app_name.controllers',
   'your_app_name.services',
@@ -17,18 +18,18 @@ angular.module('your_app_name', [
   'your_app_name.factories',
   'your_app_name.filters',
   'ngMap',
+  'admob',
   'angularMoment',
   'underscore',
-  'ngCordova',
   'youtube-embed'
 ])
 
-.run(function($ionicPlatform, AuthService, $rootScope, $state, PushNotificationsService) {
+.run(function($ionicPlatform, $adMob, AuthService, $rootScope, $state, PushNotificationsService) {
 
-        $ionicPlatform.on("deviceready", function(){
+  $ionicPlatform.on("deviceready", function(){
      $state.go('app.home');
      // Hide the accessory bar by default (remove this to show the accessory bar above the
-    keyboard
+   // keyboard
      // for form inputs)
      if (window.cordova && window.cordova.plugins.Keyboard) {
      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -37,9 +38,37 @@ angular.module('your_app_name', [
      // org.apache.cordova.statusbar required
      StatusBar.styleDefault();
      }
-     
-     
-     
+    
+         
+    if(window.AdMob) {
+                var admobid;
+
+                if (device.platform == "Android") {
+                    admobid = { // for Android
+                        banner: 'ca-app-pub-4644220547347064/5643587431',
+                        interstitial: 'ca-app-pub-4644220547347064/8597053830'
+                    };
+                } else {
+                    admobid = { // for iOS
+                        banner: 'ca-app-pub-your-ad-key',
+                        interstitial: 'ca-app-pub-your-ad-key'
+                    };
+                }
+
+                $adMob.createBanner( {
+                    adId: admobid.banner,
+                    autoShow: true,
+                    bgColor: 'black',
+                    position: $adMob.position.BOTTOM_CENTER
+                });
+
+                $adMob.prepareInterstitial({
+                    adId: admobid.interstitial,
+                    autoShow: false
+                });
+           };
+
+  
      PushNotificationsService.register();
      });
 
@@ -48,7 +77,6 @@ angular.module('your_app_name', [
          PushNotificationsService.register();
          });
          
-
 
   // UI Router Authentication Check
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
