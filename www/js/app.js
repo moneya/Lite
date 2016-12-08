@@ -58,6 +58,7 @@ angular.module('your_app_name', [
                 $adMob.createBanner( {
                     adId: admobid.banner,
                     autoShow: true,
+                     isTesting: true,
                     bgColor: 'black',
                     position: $adMob.position.BOTTOM_CENTER
                 });
