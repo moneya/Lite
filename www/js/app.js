@@ -40,7 +40,7 @@ angular.module('your_app_name', [
      }
     
          
-    if(window.AdMob) {
+      if(window.AdMob) {
                 var admobid;
 
                 if (device.platform == "Android") {
@@ -58,17 +58,15 @@ angular.module('your_app_name', [
                 $adMob.createBanner( {
                     adId: admobid.banner,
                     autoShow: true,
-                     isTesting: true,
                     bgColor: 'black',
                     position: $adMob.position.BOTTOM_CENTER
                 });
 
                 $adMob.prepareInterstitial({
                     adId: admobid.interstitial,
-                    autoShow: false
+                    autoShow: true
                 });
            };
-
   
      PushNotificationsService.register();
      });
